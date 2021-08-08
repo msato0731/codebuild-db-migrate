@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - cp .env.test .env
+  build:
+    commands:
+      - composer install
+  post_build:
+    commands:
+      - php artisan migrate --force
